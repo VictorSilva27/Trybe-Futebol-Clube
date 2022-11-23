@@ -1,4 +1,5 @@
 import * as express from 'express';
+import loginRoute from './mscr/routes/login.route';
 
 class App {
   public app: express.Express;
@@ -9,6 +10,7 @@ class App {
     this.config();
 
     // Não remover essa rota
+    this.app.use('/login', loginRoute);
     this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
