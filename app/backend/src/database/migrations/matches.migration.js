@@ -10,10 +10,6 @@ module.exports = {
         homeTeam: {
           allowNull: false,
           type: Sequelize.INTEGER,
-          references: {
-            model: 'teams',
-            key: 'id',
-          },
           field: 'home_team',
         },
         homeTeamGoals: {
@@ -24,10 +20,6 @@ module.exports = {
         awayTeam: {
           allowNull: false,
           type: Sequelize.INTEGER,
-          references: {
-            model: 'teams',
-            key: 'id',
-          },
           field: 'away_team',
         },
         awayTeamGoals: {
