@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { compareSync } from 'bcryptjs';
-import UserModel from '../../database/models/userModel';
+import UserModel from '../database/models/userModel';
 
 const validateUser = async (req: Request, res: Response, next: NextFunction) => {
   const { email,

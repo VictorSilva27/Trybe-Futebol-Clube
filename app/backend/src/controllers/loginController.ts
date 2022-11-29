@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { verify, JwtPayload } from 'jsonwebtoken';
-import createToken from '../../utils/createToken';
+import createToken from '../utils/createToken';
 import LoginService from '../services/login.service';
 
 require('dotenv/config');

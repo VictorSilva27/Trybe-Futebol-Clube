@@ -1,5 +1,5 @@
-import IUser from '../../interfaces/IUser';
-import UserModel from '../../database/models/userModel';
+import IUser from '../interfaces/IUser';
+import UserModel from '../database/models/userModel';
 
 export default class LoginService {
   public getUsername = async (email: string): Promise<IUser | null> => {
