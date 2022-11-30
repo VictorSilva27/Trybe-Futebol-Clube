@@ -11,10 +11,9 @@ const validateJWT = async (req: Request, res: Response, next: NextFunction) => {
     return res.status(401).json({ message: 'Token not found' });
   }
   try {
-    const decoded = verify(token, secret);
-    console.log(decoded);
+    verify(token, secret);
   } catch (err) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
+    return res.status(401).json({ message: 'Token must be a valid token' });
   }
   next();
 };
