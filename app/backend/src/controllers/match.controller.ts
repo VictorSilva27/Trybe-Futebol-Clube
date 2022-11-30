@@ -17,23 +17,21 @@ export default class MatchController {
 
   public insertMatch = async (req: Request, res: Response) => {
     const match = req.body;
-    console.log('Entrou no Insert');
     const matchInsert = await this.matchService.insert(match);
     return res.status(201).json(matchInsert);
   };
 
   public updateMatchFinished = async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log('Entrou no MacthFinished');
     const { response } = await this.matchService.updateFinished((+id));
     return res.status(200).json(response);
   };
 
   public updateMatch = async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log('Entrou no UpdateMatch');
     const { homeTeamGoals, awayTeamGoals } = req.body;
-    await this.matchService.updateMatch((+id), (+homeTeamGoals), (+awayTeamGoals));
-    return res.status(200).json({ message: 'Atualizado' });
+    const { status,
+      response } = await this.matchService.updateMatch(id, awayTeamGoals, homeTeamGoals);
+    return res.status(status).json(response);
   };
 }

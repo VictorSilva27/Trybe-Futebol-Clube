@@ -59,13 +59,14 @@ export default class MatchService {
   };
 
   public updateMatch = async (
-    id: number,
-    awayTeamGoals: number,
-    homeTeamGoals: number,
-  ): Promise<void> => {
+    id: string,
+    awayTeamGoals: string,
+    homeTeamGoals: string,
+  ): Promise<{ status: number; response: { message: string; }; }> => {
     await MatchModel.update(
       { awayTeamGoals, homeTeamGoals },
       { where: { id } },
     );
+    return { status: 200, response: { message: 'Updated' } };
   };
 }
