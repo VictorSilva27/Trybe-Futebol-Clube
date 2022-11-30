@@ -4,8 +4,8 @@ import TeamModel from '../database/models/teamsModel';
 const validateTeam = async (req: Request, res: Response, next: NextFunction) => {
   const { homeTeam, awayTeam } = req.body;
 
-  const teamHome = await TeamModel.findOne({ where: { id: (+homeTeam) } });
-  const teamAway = await TeamModel.findOne({ where: { id: (+awayTeam) } });
+  const teamHome = await TeamModel.findOne({ where: { id: homeTeam } });
+  const teamAway = await TeamModel.findOne({ where: { id: awayTeam } });
   if (!teamHome || !teamAway) {
     return res.status(404).json({ message: 'There is no team with such id!' });
   }

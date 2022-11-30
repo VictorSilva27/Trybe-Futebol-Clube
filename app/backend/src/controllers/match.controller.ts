@@ -9,7 +9,7 @@ export default class MatchController {
     if (inProgress === 'true' || inProgress === 'false') {
       const result = JSON.parse(inProgress as string);
       const matches = await this.matchService.getAllByInProgress(result);
-      res.status(200).json(matches);
+      return res.status(200).json(matches);
     }
     const matches = await this.matchService.getAll();
     return res.status(200).json(matches);
