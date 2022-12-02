@@ -7,6 +7,6 @@ const leaderRoute = new LearderboardController();
 
 router.get('/home', leaderRoute.getTableHome);
 router.get('/away', leaderRoute.getTableAway);
-router.get('/', (req, res) => res.status(200).json({ message: 'Implementar Função' }));
+router.get('/', leaderRoute.getAllTable);
 
 export default router;

@@ -3,7 +3,7 @@ import MatchModel from '../database/models/matchesModel';
 import TeamsModel from '../database/models/teamsModel';
 
 export default class MatchService {
-  public getAll = async (): Promise<MatchModel[]> => {
+  public getAll = async (): Promise<IMatch[]> => {
     const matches = await MatchModel.findAll({
       include: [
         {
@@ -19,7 +19,7 @@ export default class MatchService {
     return matches;
   };
 
-  public getAllByInProgress = async (inProgress: boolean): Promise<MatchModel[]> => {
+  public getAllByInProgress = async (inProgress: boolean): Promise<IMatch[]> => {
     const matches = await MatchModel.findAll({
       where: {
         inProgress,
@@ -39,7 +39,7 @@ export default class MatchService {
     return matches;
   };
 
-  public insert = async (match: IMatch): Promise<MatchModel> => {
+  public insert = async (match: IMatch): Promise<IMatch> => {
     const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = match;
     const matchInsert = await MatchModel.create({
       homeTeam,
