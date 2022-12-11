@@ -912,7 +912,7 @@
 
   * Basta ir na pasta `app/frontend` e colocar o comando: `npm run start`
   
-  ![Projeto TFC](imgs/FronEnd.png)
+  ![Projeto TFC](imgs/FrontEnd.png)
   
 </details>
 
