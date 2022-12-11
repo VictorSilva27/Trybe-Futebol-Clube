@@ -908,7 +908,7 @@
 </details>
 
 <details>
-<summary><strong>Iniciando o FrontEnd</strong></summary>
+<summary><strong>Iniciando o Front-End</strong></summary>
 
   * Basta ir na pasta `app/frontend` e colocar o comando: `npm run start`
   
