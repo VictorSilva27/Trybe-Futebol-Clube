@@ -9,7 +9,7 @@
 </details>
 
 <details>
-<summary><strong>Configuração Docker 🐳</strong></summary><br />
+<summary><strong>Configuração Docker 🐳</strong></summary>
 
   #### Atualizando/Instalando Docker
   ⚠ O seu docker-compose precisa estar na versão 1.29 ou superior.  ⚠
@@ -904,16 +904,25 @@
   ```
   </details>
 
+</br>
 </details>
 
-</br>
+<details>
+<summary><strong>Iniciando o Front-End</strong></summary>
 
-## Nota e Testes
+  * Basta ir na pasta `app/frontend` e colocar o comando: `npm run start`
+  
+  ![Projeto TFC](imgs/FrontEnd.png)
+  
+</details>
+
+## Testes e Nota 
 
 <details>
 <summary><strong>Testes E2E</strong></summary><br />
 
   #### Teste Coverage
+  Testando minhas Rotas com meus Services, Controllers e Models.
   * Os aquivos desse teste está na pasta `app/backend/src/tests`
   ![Nota do Projeto TFC](imgs/TestCoverageTFC.png)
 </details>
