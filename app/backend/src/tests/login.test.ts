@@ -20,6 +20,26 @@ const mockBody = {
     password: 'não tenta'
 }
 
+const mockBodyPasswordFalse = {
+    email: 'string@gmail.com',
+    password: 'não consegue'
+}
+
+const mockBodyEmailFalse = {
+    email: 'nemtenta@hotmail.com',
+    password: 'não tenta'
+}
+
+const mockBodyErrorEmail = {
+    email: 'string',
+    password: 'não tenta'
+}
+
+const mockBodyErrorPassword = {
+    email: 'string@gmail.com',
+    password: 'não'
+}
+
 const returnModelMock = {
     id: 1,
     username: 'VictorSilva27',
@@ -28,9 +48,20 @@ const returnModelMock = {
     role: 'Admin',
 }
 
-const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IlVzZXIiLCJyb2xlIjoidXNlciIsImVtYWlsIjoidXNlckB1c2VyLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JFk4QWJpOGpYdnNYeXFtLnJtcDBCLnVRQkE1cVV6N1Q2R2hsZy9DdlZyL2dMeFlqNVVBWlZPIn0sImlhdCI6MTY2OTk5MjgxMiwiZXhwIjoxNjcwMDc5MjEyfQ._mjsrLv_Zei6rlUXXFH0hVl_i9RIcvWdUMOQwCHsD84`;
+// sempre altere a const token, com o resultado da roda post /login, para a verificar correto
+let token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IlVzZXIiLCJyb2xlIjoidXNlciIsImVtYWlsIjoidXNlckB1c2VyLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JFk4QWJpOGpYdnNYeXFtLnJtcDBCLnVRQkE1cVV6N1Q2R2hsZy9DdlZyL2dMeFlqNVVBWlZPIn0sImlhdCI6MTY3MDUzNTE0MywiZXhwIjoxNjcwNjIxNTQzfQ.l7K-nivevzF8qKZEQl9lQzY2FcfU9mdTrawI0dTFmY8`;
 const tokenInvalid = `hehe`;
-const role = { role: 'user' };
+const role = { role: 'Admin' };
+
+const createTokenMock = async () => {
+  let chaiHttpResponse: Response;
+  sinon
+      .stub(UserModel, "findOne")
+      .resolves(returnModelMock as UserModel);
+  sinon.stub(bcrypt, 'compareSync').returns(true);
+  chaiHttpResponse = await chai.request(app).post('/login').send(mockBody);
+  return chaiHttpResponse.body.token;
+}
 
 describe('Rota /login', () => {
   let chaiHttpResponse: Response;
@@ -46,6 +77,7 @@ describe('Rota /login', () => {
     sinon.stub(bcrypt, 'compareSync').returns(true);
     chaiHttpResponse = await chai.request(app).post('/login').send(mockBody);
     expect(chaiHttpResponse.status).to.be.eq(200);
+    token = chaiHttpResponse.body.token;
   });
   it('/login post erro 400 sem o campo "email"', async () => {
     chaiHttpResponse = await chai.request(app).post('/login').send(mockBody.password);
@@ -55,10 +87,24 @@ describe('Rota /login', () => {
       chaiHttpResponse = await chai.request(app).post('/login').send(mockBody.email);
       expect(chaiHttpResponse.status).to.be.eq(400);
   });  
-  it('/login post err0 401 com email invalido', async () => {
-    sinon.stub(bcrypt, 'compareSync').returns(false);
-    chaiHttpResponse = await chai.request(app).post('/login').send(mockBody);
+  it('/login post erro 422 campo email invalido', async () => {
+      chaiHttpResponse = await chai.request(app).post('/login').send(mockBodyErrorEmail);
+      expect(chaiHttpResponse.status).to.be.eq(422);
+  });  
+  it('/login post erro 422 campo password com menos de 6 caracteres', async () => {
+      chaiHttpResponse = await chai.request(app).post('/login').send(mockBodyErrorPassword);
+      expect(chaiHttpResponse.status).to.be.eq(422);
+  });  
+  it('/login post erro 401 com password invalido', async () => {
+    chaiHttpResponse = await chai.request(app).post('/login').send(mockBodyPasswordFalse);
     expect(chaiHttpResponse.status).to.be.eq(401);
+    expect(chaiHttpResponse.body).to.be.deep.eq({ message: 'Incorrect email or password' });
+  });  
+  it('/login post erro 401 com email invalido', async () => {
+    sinon.restore();
+    chaiHttpResponse = await chai.request(app).post('/login').send(mockBodyEmailFalse);
+    expect(chaiHttpResponse.status).to.be.eq(401);
+    expect(chaiHttpResponse.body).to.be.deep.eq({ message: 'Incorrect email or password' });
   });  
   it('/login/validate get token correto', async () => {
     chaiHttpResponse = await chai.request(app).get('/login/validate').set('authorization', token);
@@ -75,3 +121,5 @@ describe('Rota /login', () => {
     expect(chaiHttpResponse.status).to.be.eq(401);
   });
 });   
+
+export { createTokenMock };
