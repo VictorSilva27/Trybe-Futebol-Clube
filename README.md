@@ -904,9 +904,8 @@
   ```
   </details>
 
-</details>
-
 </br>
+</details>
 
 ## Nota e Testes
 
