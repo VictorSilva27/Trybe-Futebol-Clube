@@ -4,7 +4,9 @@
 <details>
   <summary><strong>Sobre o Projeto ⚡</strong></summary>
   
-  * Utilizando Squelize com TypeScript, consegui realizar rotas de uma forma mais eficaz e tranquila, realizei o maximo de cobertura de testes `E2E` que consegui fazer, utilizando o `Chai`, `Mocha` e `Sinon`.
+  Fazendo o Back-End de uma aplicação que simula uma tabela de campeonato de Futebol em pontos corridos, criei rotas e testes no Back-End
+  * Utilizando Express com ajuda do Squelize em TypeScript, consegui realizar rotas de uma forma mais eficaz e tranquila
+  * Realizando o maximo de cobertura de testes `E2E` que consegui fazer, utilizei `Chai`, `Mocha` e `Sinon`.
 
 </details>
 
