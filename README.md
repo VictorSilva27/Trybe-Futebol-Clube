@@ -907,12 +907,13 @@
 </br>
 </details>
 
-## Nota e Testes
+## Testes e Nota 
 
 <details>
 <summary><strong>Testes E2E</strong></summary><br />
 
   #### Teste Coverage
+  Testando minhas Rotas com meus Services, Controllers e Models.
   * Os aquivos desse teste está na pasta `app/backend/src/tests`
   ![Nota do Projeto TFC](imgs/TestCoverageTFC.png)
 </details>
