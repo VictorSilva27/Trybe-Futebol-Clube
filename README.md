@@ -3,9 +3,19 @@
 <!-- Escrita Sobre o Projeto -->
 <details>
   <summary><strong>Sobre o Projeto ⚡</strong></summary>
-    Este projeto foi minha primeira API feita com TypeScript, foi realizado 4 rotas.
-  <br />
+  
+  * Utilizando Squelize com TypeScript, consegui realizar rotas de uma forma mais eficaz e tranquila, realizei o maximo de cobertura de testes `E2E` que consegui fazer, utilizando o `Chai`, `Mocha` e `Sinon`.
+
 </details>
+
+<details>
+<summary><strong>Configuração Docker 🐳</strong></summary><br />
+
+  #### Atualizando/Instalando Docker
+  ⚠ O seu docker-compose precisa estar na versão 1.29 ou superior.  ⚠
+[Veja aqui a documentação para atualizar o docker-compose.](https://docs.docker.com/compose/install/)
+</details>
+
 
 <details>
   <summary><strong>Como iniciar o projeto na sua máquina 💻</strong></summary>
@@ -46,9 +56,45 @@
 
 <details id='rotas'>
   <summary><strong>Rotas da API</strong></summary>
-   Deposi de ter feito o processo acima, podemos verificar nossas rotas. 
+   Depois de ter feito o processo acima, podemos verificar nossas rotas. 
    
    > Recomendo utilizar a extensão do [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) no seu Vs Code.
+   
+   Segue esse rota para utilçizar tanto no seu navegador, como no Thunder Client também.
+   
+   * `http://localhost:3001/[Rota]`
+   
+  <details>
+  <summary><strong> Rota Login </strong></summary>
+  
+  ### Login
+
+- A rota utilizada deve ser (`/login`) com o tipo `post`;
+
+- A rota deve receber os campos `email` e `password` e esses campos devem ser validados no banco de dados:
+  - O campo `email` deve receber um email válido;
+  - O Campo `password` deve ter mais de 6 caracteres.
+
+- O body da requisição deve conter o seguinte formato:
+  ```json
+  {
+    "email": "user@user.com",
+    "password": "secret_user"
+  }
+  ```
+  
+- Retorno dessa API deve ser algo parecido com:
+  ```json
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc" // Aqui deve ser o token gerado pelo backend.
+  }
+  ```
+  
+ ### Login Validação
+ Antes de enviar a rota, devemos configurar o Header da requisição
+
+</details>
+   
 </details>
 
 ## 🔰Nota do projeto🔰
