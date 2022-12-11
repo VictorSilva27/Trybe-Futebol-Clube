@@ -9,7 +9,7 @@
 </details>
 
 <details>
-<summary><strong>Configuração Docker 🐳</strong></summary><br />
+<summary><strong>Configuração Docker 🐳</strong></summary>
 
   #### Atualizando/Instalando Docker
   ⚠ O seu docker-compose precisa estar na versão 1.29 ou superior.  ⚠
