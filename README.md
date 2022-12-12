@@ -1,4 +1,4 @@
-# Projeto Trybe Futebol Clube (TFC)
+# Trybe Futebol Clube (TFC) ⚽🏅
 
 <!-- Escrita Sobre o Projeto -->
 <details>
@@ -22,11 +22,11 @@
   <summary><strong>Como iniciar o projeto na sua máquina 💻</strong></summary>
   Primeiro clone o Projeto no seu repositório local.
   
-  * `git clone git@github.com:VictorSilva27/Projeto-TFC.git`
+  * `git clone git@github.com:VictorSilva27/Trybe-Futebol-Clube.git`
   
   Agora entra no repositório local.
   
-  * `cd Projeto-TFC` (Entrar no repositório clonado)
+  * `cd Trybe-Futebol-Clube` (Entrar no repositório clonado)
   
   > Caso você tenha Visual Studio Code, `code .`
   
