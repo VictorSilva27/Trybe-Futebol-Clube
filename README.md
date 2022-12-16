@@ -56,7 +56,7 @@
 </details>
 
 <details id='rotas'>
-  <summary><strong>Rotas da API</strong></summary>
+  <summary><strong>Rotas da API 🌎</strong></summary>
    Depois de ter feito o processo acima, podemos verificar nossas rotas. 
    
    > Recomendo utilizar a extensão do [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) no seu Vs Code.
@@ -910,7 +910,7 @@
 </details>
 
 <details>
-<summary><strong>Iniciando o Front-End</strong></summary>
+<summary><strong>Iniciando o Front-End 📱</strong></summary>
 
   * Basta ir na pasta `app/frontend` e colocar o comando: `npm run start`
   
@@ -921,7 +921,7 @@
 ## Testes e Nota 
 
 <details>
-<summary><strong>Testes E2E</strong></summary><br />
+<summary><strong>Testes E2E 🧪</strong></summary><br />
 
   #### Teste Coverage
   Testando minhas Rotas com meus Services, Controllers e Models.
@@ -930,7 +930,7 @@
 </details>
 
 <details>
-<summary><strong>Nota do Projeto</strong></summary><br />
+<summary><strong>Nota do Projeto ⭐</strong></summary><br />
 
 ## Nota do Projeto ⭐⭐⭐⭐⭐
 ![Nota do Projeto TFC](imgs/TFC.png)
