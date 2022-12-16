@@ -932,7 +932,7 @@
 <details>
 <summary><strong>Nota do Projeto</strong></summary><br />
 
-## 🔰Nota do projeto🔰
+## Nota do Projeto ⭐⭐⭐⭐⭐
 ![Nota do Projeto TFC](imgs/TFC.png)
 
 </details>
